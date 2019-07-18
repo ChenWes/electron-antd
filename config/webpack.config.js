@@ -1,18 +1,21 @@
 const path = require('path')
 const webpack = require('webpack')
 
+// webpack插件
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-
+// 环境
 const { NODE_ENV } = process.env
 
+// 返回当时脚本工作目录的路径
 const projectPath = process.cwd()
 const appPath = path.join(__dirname, `../src`)
 
+// 样式加载器
 const styleLoader = [{ loader: 'css-loader' }]
 if (NODE_ENV === 'development') {
   styleLoader.unshift({ loader: 'css-hot-loader' }, { loader: 'style-loader' })
@@ -20,12 +23,14 @@ if (NODE_ENV === 'development') {
   styleLoader.unshift({ loader: MiniCssExtractPlugin.loader })
 }
 
-console.log(NODE_ENV, appPath)
+console.log(`运行环境：${NODE_ENV}`, `编译文件目录地址：${appPath}`)
 
+// webpack 配置信息
 const webpackConfig = {
   mode: NODE_ENV,
   target: 'electron-renderer',
   entry: {
+    // 入口文件
     app: `${appPath}/index.js`,
   },
   resolve: {
@@ -102,13 +107,18 @@ const webpackConfig = {
   ],
 }
 
+
+//区分不同环境
 if (NODE_ENV === 'development') {
+
   // 开发环境配置
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   )
+
 } else if (NODE_ENV === 'production') {
+
   // 生产环境配置
   webpackConfig.plugins.push(
     new UglifyJsPlugin({

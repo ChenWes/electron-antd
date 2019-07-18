@@ -9,7 +9,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="flex column">
-        <h2>App is OK</h2>
+        <h2>MES Client</h2>
         <hr/>
         <Button onClick={() => {
           this.props.history.push('/demo')

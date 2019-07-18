@@ -3,6 +3,8 @@ import { Router } from './components'
 import routes from './pages/routes'
 import './styles/index.less'
 
+// routes
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -10,7 +12,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div id="app">
+      <div id="app">        
         <Router routes={routes} />
       </div>
     )

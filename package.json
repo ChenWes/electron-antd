@@ -1,6 +1,6 @@
 {
-  "name": "electron-antd",
-  "version": "1.0.0",
+  "name": "electron-mes",
+  "version": "1.0.3",
   "description": "",
   "main": "electron/main.js",
   "scripts": {
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lanten/electron-antd.git"
+    "url": "git+https://github.com/ChenWes/electron-antd.git"
   },
-  "author": "lanten",
+  "author": "WesChen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lanten/electron-antd/issues"
+    "url": "https://github.com/ChenWes/electron-antd/issues"
   },
-  "homepage": "https://github.com/lanten/electron-antd#readme",
+  "homepage": "https://github.com/ChenWes/electron-antd#readme",
   "dependencies": {
     "antd": "^3.12.1",
     "react": "^16.7.0",

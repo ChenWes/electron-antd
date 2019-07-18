@@ -15,7 +15,10 @@ export default class AppRouter extends React.Component {
   }
 
   render() {
+
+    // 传入的路由数组（来自于pages/routes）
     const { routes } = this.props
+    
     return (
       <Router>
         <Switch>
@@ -25,6 +28,7 @@ export default class AppRouter extends React.Component {
     )
   }
 
+  // 创建路由
   creatRoute = (routeConfig, i) => {
     const { key = i, path, exact, component: Comp, params } = routeConfig
     return (

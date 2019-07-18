@@ -49,6 +49,7 @@ function createWindow(key, options = {}) {
     delete options.from
   }
 
+  // 加载窗体的参数
   const defaultOptions = {
     icon: appIcon,
     width: 800,
@@ -63,15 +64,21 @@ function createWindow(key, options = {}) {
     vibrancy: 'appearance-based', // 毛玻璃效果
     ...config
   }
+
   win = new BrowserWindow(Object.assign(defaultOptions, options))
   if (from) win.from = from
+
+  // 加入数组，且引入地址
   windowList[key] = win
   win.loadURL(url)
+
+  // 窗口准备好了，即会显示
   win.once('ready-to-show', () => {
     win.show()
     // win.webContents.openDevTools()
   })
 
+  // 关闭事件，清空数组
   win.on('close', e => {
     delete windowList[key]
   })
